@@ -1,3 +1,13 @@
+---
+title: Pereceptions of Probability
+author: Reddit /u/zonination
+output: 
+  html_notebook: 
+    highlight: espresso
+    theme: yeti
+---
+
+```{r setup, message=FALSE}
 #Import files, load plot and data packages, fire up the number machine.
 # setwd("~/Dropbox/R/Perceptions of Probability")
 probly <- read.csv("probly.csv", stringsAsFactors=FALSE)
@@ -46,7 +56,9 @@ numberly$variable <- factor(numberly$variable,
 
 #Modify Theme:
 source("ztheme.R")
+```
 
+```{r}
 #Plot probability data
 ggplot(probly,aes(variable,value))+
   geom_boxplot(aes(fill=variable),alpha=.5)+
@@ -59,7 +71,10 @@ ggplot(probly,aes(variable,value))+
        caption="created by /u/zonination")+
   coord_flip()+
   z_theme()
-ggsave("plot1.png", height=8, width=8, dpi=120)
+#ggsave("plot1.png", height=8, width=8, dpi=120)
+```
+
+```{r}
 
 #Plot numberly data
 ggplot(numberly,aes(variable,value))+
@@ -74,7 +89,11 @@ ggplot(numberly,aes(variable,value))+
        caption="created by /u/zonination")+
   coord_flip()+
   z_theme()
-ggsave("plot2.png", height=5, width=8, dpi=120)
+#ggsave("plot2.png", height=5, width=8, dpi=120)
+```
+
+```{r}
+
 
 # Joyplot for probly
 ggplot(probly,aes(y=variable,x=value))+
@@ -86,8 +105,11 @@ ggplot(probly,aes(y=variable,x=value))+
        x="Assigned Probability",
        caption="created by /u/zonination")+
   z_theme()
-ggsave("joy1.png", height=8, width=8, dpi=120)
+#ggsave("joy1.png", height=8, width=8, dpi=120)
+```
 
+
+```{r}
 #Joyplot for numberly
 ggplot(numberly,aes(y=variable,x=value))+
   geom_joy(aes(fill=variable, alpha=3/4))+
@@ -99,4 +121,6 @@ ggplot(numberly,aes(y=variable,x=value))+
        y="",
        caption="created by /u/zonination")+
   z_theme()
-ggsave("joy2.png", height=5, width=8, dpi=120)
+#ggsave("joy2.png", height=5, width=8, dpi=120)
+```
+
